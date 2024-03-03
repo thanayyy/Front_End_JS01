@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Style.css">
+</head>
+
+<body>
+    ดูDatabse ตั๋วทั้งหมด
+
+    <table>
+        <tr>
+            <th>Ticket_Id</th>
+            <th>Customer_Id</th>
+            <th>Product_Id</th>
+            <th>Employee_Id</th>
+            <th>Principle</th>
+            <th>Rate</th>
+            <th>Total</th>
+        </tr>
+
+        <% for(let i = 0 ;i < Tickets.length ;i++){%>
+            <tr>
+                <td>
+                    <%=Tickets[i].Pawn_ticket_Id%>
+                </td>
+                <td>
+                    <%=Tickets[i].Customer_Id%>
+                </td>
+                <td>
+                    <%=Tickets[i].Product_Id%>
+
+                </td>
+                <td>
+                    <%=Tickets[i].Employee_Id%>
+
+                </td>
+                <td>
+                    <%=Tickets[i].Principle%>
+
+                </td>
+                <td>
+                    <%=Tickets[i].Rate%>
+
+                </td>
+                <td>
+                    <%=Tickets[i].Total%>
+                </td>
+                <td>
+                    <a href="/Update_Ticket/<%=Tickets[i].Pawn_ticket_Id%>">Update</a>
+                    <a href="/Delete_Ticket/<%=Tickets[i].Pawn_ticket_Id%>">delete</a>
+                </td>
+            </tr>
+            <%}%>
+    </table>
+    <br>
+</body>
+
+</html>

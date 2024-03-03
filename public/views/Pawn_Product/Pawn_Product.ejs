@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <%=Name%>
+        <%=Id%>
+            <form action="/Data_Product" method="post">
+
+                <label for="Customer_Id"> รหัสลูกค้า</label>
+                <input type="text" id="Customer_Id" name="Customer_Id" value="<%=Id%>">
+                <br>
+
+                <label for="Name"> ชื่อสินค้า</label>
+                <input type="text" id="Name" name="Name">
+                <br>
+
+
+                <label for="Value">ราคาที่ต้องการ</label>
+                <input type="text" id="Value" name="Value">
+                <br>
+
+
+                <input type="submit" value="ส่งข้อมูลการจำนำ">
+            </form>
+
+</body>
+
+</html>

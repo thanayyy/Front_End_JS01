@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    record Pawn
+
+    <table>
+        <tr>
+            <th>Product_Id</th>
+            <th>Customer_Id</th>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Rate</th>
+            <th>Total</th>
+        </tr>
+
+        <% for(let i = 0 ;i < Items.length ;i++){%>
+            <%if(Id == Items[i].Customer_Id ){%>
+                <tr>
+                    <td>
+                        <%=Items[i].Product_Id%>
+                    </td>
+                    <td>
+                        <%=Items[i].Customer_Id%>
+                    </td>
+                    <td>
+                        <%=Items[i].Name%>
+                    </td>
+                    <td>
+                        <%=Items[i].Value%>
+                    </td>
+                    <td>
+                        <%=Tickets[i].Rate%>
+                    </td>
+                    <td>
+                        <%=Tickets[i].Total%>
+                    </td>
+
+                </tr>
+                <%}%>
+                    <%}%>
+    </table>
+    <a href="/Pawn_Shop">กลับไปหน้าแรก</a>
+</body>
+
+</html>

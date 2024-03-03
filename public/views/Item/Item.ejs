@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ดูDatabase สินค้า ทั้งหมด
+    <table>
+        <tr>
+            <th>Product_Id</th>
+            <th>Customer_Id</th>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+
+        <% for(let i = 0 ;i < Items.length ;i++){%>
+            <tr>
+                <td>
+                    <%=Items[i].Product_Id%>
+                </td>
+                <td>
+                    <%=Items[i].Customer_Id%>
+                </td>
+                <td>
+                    <%=Items[i].Name%>
+                </td>
+                <td>
+                    <%=Items[i].Value%>
+                </td>
+                <td>
+                    <a href="/Item/<%=Items[i].Product_Id%>">view</a>
+                    <a href="/Update_Item/<%=Items[i].Product_Id%>">Update</a>
+                    <a href="/Delete_Item/<%=Items[i].Product_Id%>">delete</a>
+                </td>
+            </tr>
+            <%}%>
+    </table>
+    <a href="/Pawn_Shop">กลับไปหน้าแรก</a>
+    <br>
+</body>
+
+</html>
