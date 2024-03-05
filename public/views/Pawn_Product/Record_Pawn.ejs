@@ -20,14 +20,15 @@
             <th>Total</th>
         </tr>
 
-        <% for(let i = 0 ;i < Items.length ;i++){%>
+        <% for(let i = 0 ;i < Tickets.length ;i++){%>
             <%if(Id == Items[i].Customer_Id ){%>
+
                 <tr>
                     <td>
                         <%=Items[i].Product_Id%>
                     </td>
                     <td>
-                        <%=Items[i].Customer_Id%>
+                        <%=Id%>
                     </td>
                     <td>
                         <%=Items[i].Name%>
@@ -35,13 +36,13 @@
                     <td>
                         <%=Items[i].Value%>
                     </td>
+
                     <td>
                         <%=Tickets[i].Rate%>
                     </td>
                     <td>
                         <%=Tickets[i].Total%>
                     </td>
-
                 </tr>
                 <%}%>
                     <%}%>

@@ -100,14 +100,16 @@ app.get('/Pawn_Shop', async(req, res) => {
 function Pawn_Product() {
     app.get('/Pawn_Product/:Name/:Id', async(req, res) => {
         Id_Customer = req.params.Id
-        const respones = await axios.get(base_url + '/Customers')
-        res.render("Pawn_Product/Pawn_Product", { Name: req.params.Name, Id: req.params.Id })
+
+        const respones_Employee = await axios.get(base_url + '/Employees')
+        res.render("Pawn_Product/Pawn_Product", { Name: req.params.Name, Id: req.params.Id, Employees: respones_Employee.data })
 
     })
 
     app.post('/Data_Product', async(req, res) => {
         const data_Product = {
             Customer_Id: req.body.Customer_Id,
+            Employee_Id: req.body.Employee_Id,
             Name: req.body.Name,
             Value: req.body.Value,
         }
@@ -155,11 +157,6 @@ function Customer() {
         res.render("Customer/Customer", { Customers: respones.data })
     })
 
-    app.get('/Customer/:Customer_Id', async(req, res) => {
-        const respones = await axios.get(base_url + '/Customer/' + req.params.Customer_Id)
-        res.render("Customer/View_Customer", { Customer: respones.data })
-    })
-
     app.get('/Update_Customer/:Customer_Id', async(req, res) => {
         const respones = await axios.get(base_url + '/Customer/' + req.params.Customer_Id)
         res.render("Customer/Update_Customer", { Customer: respones.data })
@@ -173,6 +170,7 @@ function Customer() {
             Address: req.body.Address,
             Password: req.body.Password
         }
+
         Name_Customer = req.body.Name
         await axios.put(base_url + '/Customer_Update/' + req.params.Customer_Id, data_Customer)
         const respones_Cus = await axios.get(base_url + '/Customers')
@@ -208,10 +206,7 @@ function Employee() {
         res.redirect("Employee_Page")
     })
 
-    app.get('/Employee/:Employee_Id', async(req, res) => {
-        const respones = await axios.get(base_url + '/Employee/' + req.params.Employee_Id)
-        res.render("Employee/View_Employee", { Employee: respones.data })
-    })
+
 
     app.get('/Update_Employee/:Employee_Id', async(req, res) => {
         const respones = await axios.get(base_url + '/Employee/' + req.params.Employee_Id)
@@ -246,11 +241,6 @@ function Item() {
         res.render("Item/Item", { Items: respones.data })
     })
 
-    app.get('/Item/:Product_Id', async(req, res) => {
-        const respones = await axios.get(base_url + '/Item/' + req.params.Product_Id)
-        res.render("Item/View_Item", { Item: respones.data })
-    })
-
     app.get('/Update_Item/:Product_Id', async(req, res) => {
         const respones = await axios.get(base_url + '/Item/' + req.params.Product_Id)
         res.render("Item/Update_Item", { Item: respones.data })
@@ -261,10 +251,45 @@ function Item() {
             Name: req.body.Name,
             Value: req.body.Value
         }
-
+        const data_Ticket = {
+            Principle: req.body.Principle,
+            Rate: req.body.Rate,
+            Total: req.body.Total
+        }
         await axios.put(base_url + '/Item_Update/' + req.params.Product_Id, data_Item)
-        res.redirect("/Item_Page")
+        const respones_Ticket = await axios.get(base_url + '/Tickets')
+
+        data_Ticket.Principle = req.body.Value
+        Calrate(data_Ticket)
+        let count = 0
+        respones_Ticket.data.map(x => {
+            if (req.params.Product_Id == x.Product_Id) count += 1
+        })
+        if (count == 1) {
+            axios.put(base_url + '/Ticket_Update/' + req.params.Product_Id, data_Ticket)
+            res.redirect("/Item_Page")
+        } else res.render("Error_Page")
+
+
+
+
     })
+
+    function Calrate(data) {
+        var value = [1000, 3000, 5000, 7000]
+        var rate = [0.1, 0.2, 0.3, 0.4, 0.5]
+        let total = 0
+        for (let i = 0; i < value.length; i++) {
+            if (data.Principle < value[i]) {
+                data.Rate = rate[i]
+                break
+            }
+        }
+        if (data.Principle >= 7000) data.Rate = rate[4]
+        total = data.Principle * data.Rate
+        data.Total = total + parseInt(data.Principle)
+
+    }
 
     app.get('/Delete_Item/:Product_Id', async(req, res) => {
 
@@ -281,13 +306,15 @@ function Ticket() {
         res.render("Ticket/Ticket", { Tickets: respones.data })
     })
 
-
+    app.get('/Delete_Ticket/:Ticket_Id', async(req, res) => {
+        axios.delete(base_url + '/Ticket_Delete/' + req.params.Ticket_Id)
+        res.redirect("/Ticket")
+    })
 
 
 }
 
 Register_Login()
-
 Pawn_Product()
 Customer()
 Employee()

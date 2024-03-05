@@ -8,28 +8,36 @@
 </head>
 
 <body>
-
-    <%=Name%>
-        <%=Id%>
-            <form action="/Data_Product" method="post">
-
-                <label for="Customer_Id"> รหัสลูกค้า</label>
-                <input type="text" id="Customer_Id" name="Customer_Id" value="<%=Id%>">
-                <br>
-
-                <label for="Name"> ชื่อสินค้า</label>
-                <input type="text" id="Name" name="Name">
-                <br>
+    <%if(Employees.length == 0) { %>
+        โปรดเพิ่มข้อมูลพนักงาน
+        <%}else{%>
+            <% var min =  Employees[0].Employee_Id%>
+                <% var max =  Employees[Employees.length-1].Employee_Id%>
+                    <%const randomInRange = Math.floor(Math.random() * (max - min + 1)) + min%>
 
 
-                <label for="Value">ราคาที่ต้องการ</label>
-                <input type="text" id="Value" name="Value">
-                <br>
+                        <form action="/Data_Product" method="post">
+
+                            <label for="Customer_Id"> รหัสลูกค้า</label>
+                            <input type="text" id="Customer_Id" name="Customer_Id" value="<%=Id%>">
+                            <br>
+                            <label for="Employee_Id"> รหัสพนักงาน</label>
+                            <input type="text" id="Employee_Id" name="Employee_Id" value="<%=randomInRange%>">
+                            <br>
+
+                            <label for="Name"> ชื่อสินค้า</label>
+                            <input type="text" id="Name" name="Name">
+                            <br>
 
 
-                <input type="submit" value="ส่งข้อมูลการจำนำ">
-            </form>
+                            <label for="Value">ราคาที่ต้องการ</label>
+                            <input type="text" id="Value" name="Value">
+                            <br>
 
+
+                            <input type="submit" value="ส่งข้อมูลการจำนำ">
+                        </form>
+                        <%}%>
 </body>
 
 </html>

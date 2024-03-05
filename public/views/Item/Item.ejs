@@ -13,6 +13,7 @@
         <tr>
             <th>Product_Id</th>
             <th>Customer_Id</th>
+            <th>Employee_Id</th>
             <th>Name</th>
             <th>Value</th>
         </tr>
@@ -26,13 +27,16 @@
                     <%=Items[i].Customer_Id%>
                 </td>
                 <td>
+                    <%=Items[i].Employee_Id%>
+                </td>
+                <td>
                     <%=Items[i].Name%>
                 </td>
                 <td>
                     <%=Items[i].Value%>
                 </td>
                 <td>
-                    <a href="/Item/<%=Items[i].Product_Id%>">view</a>
+
                     <a href="/Update_Item/<%=Items[i].Product_Id%>">Update</a>
                     <a href="/Delete_Item/<%=Items[i].Product_Id%>">delete</a>
                 </td>
