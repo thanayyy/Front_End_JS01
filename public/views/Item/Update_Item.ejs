@@ -5,27 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/updateitem.css">
 </head>
 
 <body>
-
     <form action="/Put_Item/<%= Item.Product_Id%>" method="post">
-
-
-        <label for="Name">Name</label>
-        <input type="text" id="Name" name="Name" value=<%=Item.Name%>>
+        <h1>Update Product ID: <%= Item.Product_Id%></h1>
+        <input type="text" id="Name" name="Name" placeholder="Enter Name: " value=<%=Item.Name%>>
         <br>
-
-        <label for="Value">Value</label>
-        <input type="text" id="Value" name="Value" value=<%=Item.Value%>>
+        <input type="text" id="Value" name="Value" placeholder="Enter Value: " value=<%=Item.Value%>>
         <br>
-
-
         <input type="submit" value="Update">
-        <h1><a href="/Item_Page">กลับ</a></h1>
-        <h1><a href="/Pawn_Shop">กลับหน้าหลัก</a></h1>
+        <a href="/Item_Page">กลับ</a>
     </form>
-
 </body>
-
 </html>

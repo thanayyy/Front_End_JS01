@@ -5,23 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/signin.css">
 </head>
 
 <body>
-    <h1> sign in</h1>
-
+    
+<div class="container">
     <form action="/Login_Customer" method="post">
-
-        <label for="Name"> Name</label>
-        <input type="text" id="Name" name="Name">
-        <br>
-        <label for="Password"> Password</label>
-        <input type="text" id="Password" name="Password">
-        <br>
-
-        <input type="submit" value="Sign in">
+        <h1>Sign in</h1>
+        <div class="from-group">
+        <input type="text" id="Name" class="form-control" name="Name" placeholder="Enter Name: "> 
+        </div><br>
+        <div class="from-group">
+        <input type="password" id="Password" class="form-control" name="Password" placeholder="Enter Password: ">  
+        </div> 
+        
+        <br><a href="/Sign_up">ยังไม่มีบัญชีใช่หรือไม่ ? </a>
+        <div class="btn-signin">
+           <input type="submit" value="Sign in">
+        </div>
+        
     </form>
-    <a href="/">กลับไปหน้าloing</a>
+    
+</div>
+    
 </body>
 
 </html>

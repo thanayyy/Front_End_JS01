@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/updateEm.css">
 </head>
 
 <body>
-    Update Employee
-    <%= Employee.Employee_Id%>
+    
         <form action="/Put_Employee/<%= Employee.Employee_Id%>" method="post">
-
-            <label for="Name"> ชื่อ</label>
-            <input type="text" id="Name" name="Name" value="<%=Employee.Name%>">
+            <h1>
+                Update Employee ID: 
+    <%= Employee.Employee_Id%>
+            </h1>
+            <input type="text" id="Name" placeholder="Enter Name: " name="Name" value="<%=Employee.Name%>">
             <br>
 
-            <label for="Phone">เบอร์โทรศัพท์</label>
-            <input type="text" id="Phone" name="Phone" value="<%=Employee.Phone%>">
+
+            <input type="text" id="Phone" placeholder="Enter Phone Number: " name="Phone" value="<%=Employee.Phone%>">
             <br>
 
-            <label for="Salary">เงินเดือน</label>
-            <input type="text" id="Salary" name="Salary" value="<%=Employee.Salary%>">
+
+            <input type="text" id="Salary" placeholder="Enter Salary: " name="Salary" value="<%=Employee.Salary%>">
             <br>
 
-            <label for="Post">ตำแหน่ง</label>
-            <input type="text" id="Post" name="Post" value="<%=Employee.Post%>">
+
+            <input type="text" id="Post" placeholder="Enter Position: " name="Post" value="<%=Employee.Post%>">
             <br>
 
 
             <input type="submit" value="Update">
-            <h1><a href="/Employee_Page">กลับ</a></h1>
-            <h1><a href="/Pawn_Shop">กลับหน้าหลัก</a></h1>
+            <a href="/Employee_Page">กลับ</a>
         </form>
 </body>
 

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="../css/Style.css"> -->
+    <link rel="stylesheet" href="../css/ticket.css">
 </head>
 
 <body>
-    ดูDatabse ตั๋วทั้งหมด
-
-    <table>
+    <div class="container">
+        <h1 align="center">Ticket Databse</h1>
+        <table>
         <tr>
             <th>Ticket_Id</th>
             <th>Customer_Id</th>
@@ -20,6 +20,7 @@
             <th>Principle</th>
             <th>Rate</th>
             <th>Total</th>
+            <th>Action</th>
         </tr>
 
         <% for(let i = 0 ;i < Tickets.length ;i++){%>
@@ -50,13 +51,13 @@
                     <%=Tickets[i].Total%>
                 </td>
                 <td>
-                    <a href="/Update_Ticket/<%=Tickets[i].Pawn_ticket_Id%>">Update</a>
-                    <a href="/Delete_Ticket/<%=Tickets[i].Pawn_ticket_Id%>">delete</a>
+                    <a class="button" href="/Delete_Ticket/<%=Tickets[i].Pawn_ticket_Id%>">Delete</a>
                 </td>
             </tr>
             <%}%>
     </table>
-    <br>
+    <a href="/Pawn_Shop" class="button">กลับไปหน้าแรก</a>
+    </div>
 </body>
 
 </html>

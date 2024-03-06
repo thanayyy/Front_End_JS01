@@ -4,30 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="../css/addEmployee.css">
 </head>
 
 <body>
     <form action="/Employee_Post" method="post">
-
-        <label for="Name"> ชื่อ</label>
-        <input type="text" id="Name" name="Name">
+<h1 align="center">เพิ่มพนักงาน</h1>
+        <input type="text" id="Name" name="Name" placeholder="Enter Name: ">
         <br>
 
-        <label for="Phone">เบอร์โทรศัพท์</label>
-        <input type="text" id="Phone" name="Phone">
+        <input type="text" id="Phone" name="Phone" placeholder="Enter Phone Number: ">
         <br>
 
-        <label for="Salary">เงินเดือน</label>
-        <input type="text" id="Salary" name="Salary">
+        <input type="text" id="Salary" name="Salary"  placeholder="Enter Salary: ">
         <br>
 
-        <label for="Post">ตำแหน่ง</label>
-        <input type="text" id="Post" name="Post">
+        <input type="text" id="Post" name="Post"  placeholder="Enter Post: ">
         <br>
-
-
-        <input type="submit" value="เพิ่มข้อมูลพนักงาน">
+        <input type="submit" value="เพิ่ม">
+        <a href="/Employee_Page" class="button">กลับ</a>
     </form>
 </body>
 
