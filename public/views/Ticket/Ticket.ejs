@@ -22,21 +22,40 @@
             <th>Total</th>
             <th>Action</th>
         </tr>
-
+        
+       
+        <br>
         <% for(let i = 0 ;i < Tickets.length ;i++){%>
+            
+            <%= Items[i].Product_Id%>
             <tr>
                 <td>
                     <%=Tickets[i].Pawn_ticket_Id%>
                 </td>
                 <td>
-                    <%=Tickets[i].Customer_Id%>
+                    <% for(let n = 0; n < Tickets.length;n++) {%>
+                        <%if(Tickets[i].Customer_Id == Customers[n].Customer_Id) {  %>
+                            <%=Customers[n].Name%>
+                            <%break%>
+                    <% }%>
+                    <% }%>
                 </td>
                 <td>
-                    <%=Tickets[i].Product_Id%>
+                    <% for(let n = 0; n < Tickets.length;n++) {%>
+                        <%if(Tickets[i].Product_Id == Items[n].Product_Id) {  %>
+                            <%=Items[n].Name%>
+                            <%break%>
+                    <% }%>
+                    <% }%>
 
                 </td>
                 <td>
-                    <%=Tickets[i].Employee_Id%>
+                    <% for(let n = 0; n < Tickets.length;n++) {%>
+                        <%if(Tickets[i].Employee_Id == Employees[n].Employee_Id) {  %>
+                            <%=Employees[n].Name%>
+                            <%break%>
+                    <% }%>
+                    <% }%>
 
                 </td>
                 <td>

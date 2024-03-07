@@ -302,8 +302,17 @@ function Item() {
 function Ticket() {
 
     app.get('/Ticket', async(req, res) => {
-        const respones = await axios.get(base_url + '/Tickets')
-        res.render("Ticket/Ticket", { Tickets: respones.data })
+        const respones_Ticket = await axios.get(base_url + '/Tickets')
+        const respones_Customer = await axios.get(base_url + '/Customers')
+        const respones_Item = await axios.get(base_url + '/Items')
+        const respones_Employee = await axios.get(base_url + '/Employees')
+        res.render("Ticket/Ticket", { 
+            Tickets: respones_Ticket.data, 
+            Customers: respones_Customer.data, 
+            Items: respones_Item.data, 
+            Employees: respones_Employee.data,  
+
+        })
     })
 
     app.get('/Delete_Ticket/:Ticket_Id', async(req, res) => {
@@ -314,11 +323,29 @@ function Ticket() {
 
 }
 
+function admin(){
+    app.get('/admin', async(req, res) => {
+        const respones_Ticket = await axios.get(base_url + '/Tickets')
+        const respones_Customer = await axios.get(base_url + '/Customers')
+        const respones_Item = await axios.get(base_url + '/Items')
+        const respones_Employee = await axios.get(base_url + '/Employees')
+        res.render('admin', { 
+            Tickets: respones_Ticket.data, 
+            Customers: respones_Customer.data, 
+            Items: respones_Item.data, 
+            Employees: respones_Employee.data,  
+
+        })
+    })
+}
+
 Register_Login()
 Pawn_Product()
 Customer()
 Employee()
 Item()
 Ticket()
+
+admin()
 
 app.listen(5600, () => console.log(`Listening on port 500`))
